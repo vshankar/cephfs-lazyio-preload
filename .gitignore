@@ -1,0 +1,2 @@
+libceph_lazyio.so
+*.o
