@@ -8,10 +8,10 @@
  * cached reads instead of falling back to synchronous OSD I/O.
  *
  * Trade-off: coherency is relaxed.  Other clients see this client's writes
- * only once they are written back (fsync(), close(), or normal dirty page
- * writeback), and this client may read stale data written elsewhere.  That
- * is why, by default, only file descriptors opened for writing are switched
- * to lazy I/O.
+ * only once they are written back (fsync(), normal dirty page writeback, or
+ * the MDS revoking caps; close() alone does not flush), and this client may
+ * read stale data written elsewhere.  That is why, by default, only file
+ * descriptors opened for writing are switched to lazy I/O.
  *
  * ceph-fuse/libcephfs do not implement this ioctl; use the client config
  * option client_force_lazyio there instead.  FUSE mounts are skipped here
