@@ -1,2 +1,3 @@
 libceph_lazyio.so
+tests/hold_open
 *.o
